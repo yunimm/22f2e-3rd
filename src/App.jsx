@@ -1,34 +1,36 @@
+import { useState } from 'react';
 import './App.css';
-import Button from './components/Button';
-import ButtonText from './components/ButtonText';
-import ButtonSelect from './components/ButtonSelect';
-import Confluence from '../src/assets/image/logo/confluence-logo.png';
-import Jira from '../src/assets/image/logo/jira-logo.png';
 import ProgressBar from './components/ProgressBar';
-import Title from './components/Title';
+import MainPage from '../src/pages/MainPage';
+import Step1 from './pages/Step1';
+import Step2 from './pages/Step2';
+import Step3 from './pages/Step3';
 
 function App() {
-  return (
-    <div className="App">
-      <h1 className="text-Corange text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <Button text="Button" />
-      <ButtonText text="下一步" />
-
-      <div className="grid grid-cols-2 gap-5">
-        <ButtonSelect text="這次我幫很多人救火耶!" />
-        <ButtonSelect text="大家在開發上都會互相cover，任務都在時間內完成。" />
-      </div>
-
-      <img src={Confluence} alt="confluence-logo" />
-      <img src={Jira} alt="jira-logo" />
-
-      <ProgressBar />
-
-      <Title text="這是一個標題" />
-    </div>
-  );
+    const [step, setStep] = useState(0);
+    const addStep = () => {
+        setStep(step + 1);
+    };
+    return (
+        <div className="App">
+            {step === 0 && (
+                <div className="h-screen w-screen flex-center-col bg1">
+                    <MainPage addStep={addStep} />
+                </div>
+            )}
+            {step > 0 && (
+                <div className="h-screen w-screen flex-center-col bg2">
+                    <div className="w-full flex justify-between items-center p-[38px]">
+                        <div />
+                        {step === 1 && <Step1 addStep={addStep} />}
+                        {step === 2 && <Step2 addStep={addStep} />}
+                        {step === 3 && <Step3 addStep={addStep} />}
+                        <ProgressBar step={step} />
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default App;

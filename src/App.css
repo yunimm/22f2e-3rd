@@ -3,58 +3,119 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 75px;
-  }
-  h2 {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 47px;
-  }
-  h3 {
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 38px;
-  }
-  h4 {
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 33px;
-  }
-  h5 {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-  }
-  h6 {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23px;
-  }
-  body {
-    font-weight: 400;
-    font-size: 20px;
-  }
-  button {
-    font-weight: 500;
-    font-size: 20px;
-  }
-  caption {
-    font-weight: 300;
-    font-size: 16px;
-  }
+    h1 {
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 75px;
+    }
+    h2 {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 47px;
+    }
+    h3 {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 38px;
+    }
+    h4 {
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 33px;
+    }
+    h5 {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+    }
+    h6 {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+    }
+    body {
+        font-weight: 400;
+        font-size: 20px;
+    }
+    button {
+        font-weight: 500;
+        font-size: 20px;
+    }
+    caption {
+        font-weight: 300;
+        font-size: 16px;
+    }
+    p {
+        @apply text-Mblue-300;
+    }
 }
 
 .glass {
-  background: linear-gradient(
-    151.16deg,
-    rgba(225, 225, 225, 0.264) 1.11%,
-    rgba(255, 255, 255, 0.8) 98.42%
-  );
-  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  border: 1px solid #fff;
+    background: linear-gradient(
+        151.16deg,
+        rgba(225, 225, 225, 0.264) 1.11%,
+        rgba(255, 255, 255, 0.8) 98.42%
+    );
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    border: 1px solid #fff;
+}
+li[data-active='true'] {
+    @apply bg-Mblue;
+}
+.flex-center-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.flex-center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-board {
+    width: 1280px;
+    height: 640px;
+    padding: 60px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.board {
+    position: relative;
+    width: 1280px;
+    height: 640px;
+    padding: 60px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.board_type_p0 {
+    position: relative;
+    width: 1280px;
+    height: 640px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    flex-direction: column;
+}
+
+.bg1 {
+    background-image: url(../src/assets//image//background/background-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg2 {
+    background-image: url(../src/assets//image//background/background-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

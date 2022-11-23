@@ -1,22 +1,27 @@
-import React from "react";
+import React from 'react';
 
-
-const ProgressBar = () => {
-    
+const ProgressBar = ({ step }) => {
     return (
-    <>
-    <div class="bg-Mblue w-3.5 h-3.5 rounded-full mb-3" />
-    <div class="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
-    <div class="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
-    <div class="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
-    <div class="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
-    <div class="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
-    <div class="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
-    <div class="bg-Mgray-200 w-3.5 h-3.5 rounded-full" />
-
-    </>
-);
-}
-
+        <ul>
+            <li
+                data-active={step === 1}
+                className="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3"
+            />
+            <li
+                data-active={step === 2}
+                className="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3"
+            />
+            <li
+                data-active={step === 3}
+                className="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3"
+            />
+            <li className="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
+            <li className="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
+            <li className="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
+            <li className="bg-Mgray-200 w-3.5 h-3.5 rounded-full mb-3" />
+            <li className="bg-Mgray-200 w-3.5 h-3.5 rounded-full" />
+        </ul>
+    );
+};
 
 export default ProgressBar;
