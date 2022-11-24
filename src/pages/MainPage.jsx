@@ -4,6 +4,7 @@ import confluencelogo from '../assets/image/logo/confluence-logo.png';
 import jiralogo from '../assets/image/logo/jira-logo.png';
 
 const MainPage = ({ addStep }) => {
+    
     return (
         <>
             <div className="glass main-board">

@@ -52,6 +52,11 @@ module.exports = {
             spacing: {
                 7.5: '30px',
             },
+            boxShadow: {
+                xl: '0 4px 12px 0px rgba(38,132,255,1)',
+                '2xl': '0 6px 0px 0px rgba(38,132,255,1)',
+                '3xl': '0 4px 0px 0px rgba(38,132,255,1)',
+            },
         },
     },
     plugins: [

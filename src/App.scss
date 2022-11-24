@@ -64,6 +64,10 @@
 li[data-active='true'] {
     @apply bg-Mblue;
 }
+button[data-disabled='true'] {
+    pointer-events: none;
+    @apply bg-Mgray shadow-none;
+}
 .flex-center-col {
     display: flex;
     justify-content: center;
@@ -96,7 +100,7 @@ li[data-active='true'] {
     justify-content: center;
     flex-direction: column;
 }
-.board_type_p0 {
+.board-type-p0 {
     position: relative;
     width: 1280px;
     height: 640px;
@@ -118,4 +122,93 @@ li[data-active='true'] {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.bg3 {
+    background-image: url(../src/assets//image//background/background-3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.drag-wrapper {
+    position: relative;
+    width: 438px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    &-item-meat {
+        width: 378px;
+        height: 100%;
+        background-color: #922020;
+        color: white;
+        border-radius: 8px;
+        line-height: 64px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:active {
+            background-color: #611616;
+        }
+    }
+    &-item-cheese {
+        width: 378px;
+        height: 100%;
+        background-color: #ffa31a;
+        color: white;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:active {
+            background-color: #c77f13;
+        }
+    }
+    &-item-salad {
+        width: 378px;
+        height: 100%;
+        background-color: #69c30e;
+        color: white;
+        border-radius: 8px;
+        line-height: 64px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:active {
+            background-color: #4e900b;
+        }
+    }
+    &-item-tomato {
+        width: 378px;
+        height: 100%;
+        background-color: #f33838;
+        color: white;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:active {
+            background-color: #b42a2a;
+        }
+    }
+    &img {
+        display: inline-block;
+    }
+    &:hover {
+        filter: drop-shadow(0px 6px 0px #23385e);
+    }
+}
+.drag-border {
+    width: 378px;
+    height: 64px;
+    border: 1px dashed #aaaaaa;
+    border-radius: 8px;
+}
+.arrows-pointing-out {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    transform: rotate(-45deg);
 }

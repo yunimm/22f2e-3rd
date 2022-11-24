@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({ text, addStep }) => {
+const Button = ({ text, addStep, isCompleted }) => {
     return (
         <>
             <button
@@ -11,6 +11,7 @@ const Button = ({ text, addStep }) => {
             transition ease-in-out"
                 type="button"
                 onClick={addStep}
+                // data-disabled={!isCompleted}
             >
                 {text}
             </button>
