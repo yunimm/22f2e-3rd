@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({ text, addStep }) => {
+const MissionButton = ({ text, addStep, isCompleted }) => {
     return (
         <>
             <button
@@ -8,9 +8,10 @@ const Button = ({ text, addStep }) => {
             hover:bg-Mblue-200 hover:shadow-2xl 
             active:bg-Mblue-300 active:shadow-3xl 
             disabled:bg-Mgray disabled:shadow-none
-            transition ease-in-out"
+            transition ease-in-out missionBtn"
                 type="button"
                 onClick={addStep}
+                data-disabled={isCompleted === false}
             >
                 {text}
             </button>
@@ -18,4 +19,4 @@ const Button = ({ text, addStep }) => {
     );
 };
 
-export default Button;
+export default MissionButton;

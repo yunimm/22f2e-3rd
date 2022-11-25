@@ -7,35 +7,42 @@
         font-weight: 700;
         font-size: 64px;
         line-height: 75px;
+        color: #23385e;
     }
     h2 {
         font-weight: 700;
         font-size: 40px;
         line-height: 47px;
+        color: #23385e;
     }
     h3 {
         font-weight: 500;
         font-size: 32px;
         line-height: 38px;
+        color: #23385e;
     }
     h4 {
         font-weight: 400;
         font-size: 28px;
         line-height: 33px;
+        color: #23385e;
     }
     h5 {
         font-weight: 400;
         font-size: 24px;
         line-height: 28px;
+        color: #23385e;
     }
     h6 {
         font-weight: 400;
         font-size: 20px;
         line-height: 23px;
+        color: #23385e;
     }
     body {
         font-weight: 400;
         font-size: 20px;
+        color: #23385e;
     }
     button {
         font-weight: 500;
@@ -47,6 +54,9 @@
     }
     p {
         @apply text-Mblue-300;
+    }
+    span {
+        color: #23385e;
     }
 }
 
@@ -64,7 +74,8 @@
 li[data-active='true'] {
     @apply bg-Mblue;
 }
-button[data-disabled='true'] {
+
+.missionBtn[data-disabled='true'] {
     pointer-events: none;
     @apply bg-Mgray shadow-none;
 }
@@ -211,4 +222,29 @@ button[data-disabled='true'] {
     left: 6px;
     top: 6px;
     transform: rotate(-45deg);
+}
+.footer {
+    height: 69px;
+    text-align: left;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    img {
+        width: 54.7px;
+    }
+    &-text {
+        background-color: white;
+        border-radius: 12px;
+        padding: 16px 20px;
+    }
+}
+.dialogue-wrapper {
+    text-align: left;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
 }

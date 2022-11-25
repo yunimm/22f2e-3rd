@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Title from '../components/Title';
 import Button from '../components/Button';
+import MissionButton from '../components/MissionButton';
 import Po from '../assets/image/introduce/po-introduce.svg';
 import jiralogo from '../assets/image/logo/jira-logo.png';
 import burgerTop from '../assets/image/burger-top.svg';
@@ -12,16 +13,16 @@ import {
     DragItemSalad,
     DragItemTomato,
 } from '../components/DragItems';
-const Step3 = ({ addStep }) => {
+const Step3 = ({ addStep, setIsCompleted, isCompleted }) => {
     const [page, setPage] = useState(1);
-    const [isCompleted, setIsCompleted] = useState(false);
+
     const addPage = () => {
         setPage(page + 1);
     };
     return (
         <>
             <div className="flex-center-col gap-5">
-                <Title text={'產品代辦清單 (Product Backlog)'} />
+                <Title text={'短衝規劃會議 (Sprint Planning)'} />
                 {page === 1 && (
                     <div className="glass board">
                         <div className="flex items-end gap-10">
@@ -95,11 +96,24 @@ const Step3 = ({ addStep }) => {
                                 </div>
                             </div>
                         </div>
+                        <div className="footer">
+                            <img src={Po} alt="character on screen" />
+                            <p className="footer-text">
+                                我們收到客戶的需求提示，想要一個大漢堡，一定要有
+                                <span className="text-Mblue-200">
+                                    肉、起司、生菜和番茄
+                                </span>
+                                。<br />
+                                請依照產品需求，排放到產品待辦清單並調整
+                                <span className="text-Mblue-200">優先順序</span>
+                                。
+                            </p>
+                        </div>
                         <div className="absolute bottom-[30px] right-[30px]">
-                            <Button
+                            <MissionButton
                                 text={'完成'}
+                                isCompleted={isCompleted}
                                 addStep={page === 2 ? addStep : addPage}
-                                // disabled={isCompleted}
                             />
                         </div>
                     </div>
