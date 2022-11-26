@@ -68,7 +68,7 @@ const Step3 = ({ addStep, setIsCompleted, isCompleted }) => {
                 )}
                 {page === 2 && (
                     <div className="glass board-type-p0">
-                        <div className="border border-[#AAAAAA] rounded-xl w-[1220px] h-[491px] flex justify-between py-[25px] pr-[100px] pl-10">
+                        <div className="main-border-wrapper flex justify-between py-[25px] pr-[100px] pl-10">
                             <div className="flex justify-between flex-col">
                                 <h5>「人才招募系統」內容物</h5>
                                 <ul className="flex gap-7.5 flex-col mb-4">

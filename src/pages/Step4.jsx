@@ -89,7 +89,7 @@ const Step4 = ({ addStep, setIsCompleted, isCompleted }) => {
                     <div className="glass board-type-p0">
                         <div
                             id="box"
-                            className="border border-[#AAAAAA] rounded-xl w-[1220px] h-[491px] p-5 overflow-auto"
+                            className="main-border-wrapper p-5 overflow-auto"
                         >
                             <Dialogue src={PoMeet} chName={'PO 滾滾'}>
                                 <div className="dialogue-wrapper h-[106px]">

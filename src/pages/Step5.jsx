@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import MissionButton from '../components/MissionButton';
 import Po from '../assets/image/introduce/po-introduce.svg';
 import jiralogo from '../assets/image/logo/jira-logo.png';
+import pan from '../assets/image/pan.svg';
 import { BurgerTop, BurgerBottom } from '../components/Burger';
 
 import {
@@ -24,40 +25,60 @@ const Step5 = ({ addStep, setIsCompleted, isCompleted }) => {
                 <Title text={'短衝規劃會議 (Sprint Planning)'} />
 
                 <div className="glass board-type-p0">
-                    <div className="border border-[#AAAAAA] rounded-xl w-[1220px] h-[491px] flex justify-between py-[25px] pr-[100px] pl-10">
+                    <div className="main-border-wrapper flex justify-between py-[25px] pl-[164px] pr-[70px]">
                         <div className="flex justify-between flex-col">
                             <h5>產品待辦清單 (Product Backlog)</h5>
-                            <ul className="flex gap-1.5 flex-col mb-4">
-                                <DragItemMeat />
-                                <DragItemSalad />
-                                <DragItemCheese />
-                                <DragItemTomato />
+                            <ul className="flex gap-1.5 flex-col">
+                                <BurgerTop />
+                                <div className="relative">
+                                    <p className="drag-point bg-Fbrown">10</p>
+                                    <DragItemMeat />
+                                </div>
+                                <div className="relative">
+                                    <p className="drag-point bg-Fgreen">10</p>
+                                    <DragItemSalad />
+                                </div>
+                                <div className="relative">
+                                    <p className="drag-point bg-Fyellow">10</p>
+                                    <DragItemCheese />
+                                </div>
+                                <div className="relative">
+                                    <p className="drag-point bg-Fred">10</p>
+                                    <DragItemTomato />
+                                </div>
+                                <BurgerBottom />
                             </ul>
                         </div>
-                        <div>
-                            <div className="flex gap-[6px] flex-col">
+
+                        <div className="flex gap-[6px] flex-col justify-between">
+                            <div className="flex items-center flex-col w-[378px]">
                                 <h5>產品待辦清單（Product Backlog）</h5>
-                                <BurgerTop />
-
-                                <div className="drag-border" />
-                                <div className="drag-border" />
-                                <div className="drag-border" />
-                                <div className="drag-border" />
-
-                                <BurgerBottom />
+                                <h6 className="text-Mblue-200 mt-4">
+                                    限制 20點 / 5人
+                                </h6>
+                                <p className="text-Mred">
+                                    點數已超過20點，再試試看!
+                                </p>
+                            </div>
+                            <div className="flex flex-col gap-[6px]">
+                                <p className="drag-border" />
+                                <p className="drag-border" />
+                                <p className="drag-border" />
+                                <p className="drag-border" />
+                                <img src={pan} alt="pan on screen" />
                             </div>
                         </div>
                     </div>
                     <div className="footer">
                         <img src={Po} alt="character on screen" />
                         <p className="footer-text">
-                            我們收到客戶的需求提示，想要一個大漢堡，一定要有
+                            在限制的
+                            <span className="text-Mblue-200">點數</span>之內，將
                             <span className="text-Mblue-200">
-                                肉、起司、生菜和番茄
+                                產品清單內的任務移至短衝待辦清單
                             </span>
                             。<br />
-                            請依照產品需求，排放到產品待辦清單並調整
-                            <span className="text-Mblue-200">優先順序</span>。
+                            就像是，我們為每個食材訂出烹飪時間，在有限的時間內選擇要烹飪食材。
                         </p>
                     </div>
                     <div className="absolute bottom-[30px] right-[30px]">

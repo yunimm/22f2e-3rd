@@ -144,6 +144,12 @@ li[data-active='true'] {
     .drag-wrapper {
         @apply relative w-[378px] h-[64px] flex justify-center items-center gap-3 rounded-lg cursor-pointer;
     }
+    .drag-point {
+        @apply leading-[64px] text-white inline-block  absolute -left-[74px] w-[64px] h-[64px] rounded-xl;
+    }
+    .main-border-wrapper {
+        @apply border border-[#AAAAAA] rounded-xl w-[1220px] h-[491px] ;
+    }
 }
 #drag {
     display: flex;
@@ -168,10 +174,10 @@ li[data-active='true'] {
     @apply drag-wrapper bg-Fyellow active:bg-Fyellow-200 text-white;
 }
 .drag-wrapper-salad {
-    @apply drag-wrapper bg-Fred active:bg-Fred-200 text-white;
+    @apply drag-wrapper bg-Fgreen active:bg-Fgreen-200 text-white;
 }
 .drag-wrapper-tomato {
-    @apply drag-wrapper bg-Fgreen active:bg-Fgreen-200 text-white;
+    @apply drag-wrapper bg-Fred active:bg-Fred-200 text-white;
 }
 
 .drag-border {
