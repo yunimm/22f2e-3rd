@@ -6,8 +6,13 @@ import Step1 from './pages/Step1';
 import Step2 from './pages/Step2';
 import Step3 from './pages/Step3';
 import Step4 from './pages/Step4';
+import Step5 from './pages/Step5';
+
+
+
 function App() {
-    const [step, setStep] = useState(4);
+    const [step, setStep] = useState(3
+        );
     const [isCompleted, setIsCompleted] = useState(false);
     const addStep = () => {
         setStep(step + 1);
@@ -42,15 +47,22 @@ function App() {
                 <div className="h-screen w-screen flex-center-col bg2">
                     <div className="w-full flex justify-between items-center p-[38px]">
                         <div />
-                        {/* {step === 3 && (
+                        {step === 3 && (
                             <Step3
                                 addStep={addStep}
                                 isCompleted={isCompleted}
                                 setIsCompleted={setIsCompleted}
                             />
-                        )} */}
+                        )}
                         {step === 4 && (
                             <Step4
+                                addStep={addStep}
+                                isCompleted={isCompleted}
+                                setIsCompleted={setIsCompleted}
+                            />
+                        )}
+                        {step === 5 && (
+                            <Step5
                                 addStep={addStep}
                                 isCompleted={isCompleted}
                                 setIsCompleted={setIsCompleted}

@@ -34,7 +34,7 @@ module.exports = {
                 200: '#C77F13',
             },
             Fgreen: {
-                Default: '##69C30E',
+                DEFAULT: '#69C30E',
                 200: '#4E900B',
             },
             Fred: {

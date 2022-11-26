@@ -140,77 +140,40 @@ li[data-active='true'] {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-.drag-wrapper {
-    position: relative;
-    width: 438px;
-    height: 64px;
+@layer components {
+    .drag-wrapper {
+        @apply relative w-[378px] h-[64px] flex justify-center items-center gap-3 rounded-lg cursor-pointer;
+    }
+}
+#drag {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    &-item-meat {
-        width: 378px;
-        height: 100%;
-        background-color: #922020;
-        color: white;
-        border-radius: 8px;
-        line-height: 64px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:active {
-            background-color: #611616;
-        }
-    }
-    &-item-cheese {
-        width: 378px;
-        height: 100%;
-        background-color: #ffa31a;
-        color: white;
-        border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:active {
-            background-color: #c77f13;
-        }
-    }
-    &-item-salad {
-        width: 378px;
-        height: 100%;
-        background-color: #69c30e;
-        color: white;
-        border-radius: 8px;
-        line-height: 64px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:active {
-            background-color: #4e900b;
-        }
-    }
-    &-item-tomato {
-        width: 378px;
-        height: 100%;
-        background-color: #f33838;
-        color: white;
-        border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:active {
-            background-color: #b42a2a;
-        }
-    }
-    &img {
-        display: inline-block;
-    }
+    gap: 8px;
     &:hover {
         filter: drop-shadow(0px 6px 0px #23385e);
     }
+    & p,
+    span {
+        color: white;
+    }
+    &img {
+        display: inline-block;
+        width: 48px;
+    }
 }
+
+.drag-wrapper-meat {
+    @apply drag-wrapper bg-Fbrown active:bg-Fbrown-200;
+}
+.drag-wrapper-cheese {
+    @apply drag-wrapper bg-Fyellow active:bg-Fyellow-200 text-white;
+}
+.drag-wrapper-salad {
+    @apply drag-wrapper bg-Fred active:bg-Fred-200 text-white;
+}
+.drag-wrapper-tomato {
+    @apply drag-wrapper bg-Fgreen active:bg-Fgreen-200 text-white;
+}
+
 .drag-border {
     width: 378px;
     height: 64px;

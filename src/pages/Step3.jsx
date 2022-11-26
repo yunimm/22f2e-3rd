@@ -4,9 +4,7 @@ import Button from '../components/Button';
 import MissionButton from '../components/MissionButton';
 import Po from '../assets/image/introduce/po-introduce.svg';
 import jiralogo from '../assets/image/logo/jira-logo.png';
-import burgerTop from '../assets/image/burger-top.svg';
-import burgerBottom from '../assets/image/burger-bottom.svg';
-
+import { BurgerTop, BurgerBottom } from '../components/Burger';
 import {
     DragItemMeat,
     DragItemCheese,
@@ -15,7 +13,8 @@ import {
 } from '../components/DragItems';
 const Step3 = ({ addStep, setIsCompleted, isCompleted }) => {
     const [page, setPage] = useState(1);
-
+    const margin = `ml-[152px]`;
+    const src = true;
     const addPage = () => {
         setPage(page + 1);
     };
@@ -73,26 +72,23 @@ const Step3 = ({ addStep, setIsCompleted, isCompleted }) => {
                             <div className="flex justify-between flex-col">
                                 <h5>「人才招募系統」內容物</h5>
                                 <ul className="flex gap-7.5 flex-col mb-4">
-                                    <DragItemMeat />
-                                    <DragItemSalad />
-                                    <DragItemCheese />
-                                    <DragItemTomato />
+                                    <DragItemMeat src={src} />
+                                    <DragItemSalad src={src} margin={margin} />
+                                    <DragItemCheese src={src} />
+                                    <DragItemTomato src={src} margin={margin} />
                                 </ul>
                             </div>
                             <div>
                                 <div className="flex gap-[6px] flex-col">
                                     <h5>產品待辦清單（Product Backlog）</h5>
-                                    <img src={burgerTop} alt="burger on top" />
+                                    <BurgerTop />
 
                                     <div className="drag-border" />
                                     <div className="drag-border" />
                                     <div className="drag-border" />
                                     <div className="drag-border" />
 
-                                    <img
-                                        src={burgerBottom}
-                                        alt="burger on bottom"
-                                    />
+                                    <BurgerBottom />
                                 </div>
                             </div>
                         </div>
