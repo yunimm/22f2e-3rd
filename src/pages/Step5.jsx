@@ -85,6 +85,7 @@ const Step5 = ({ addStep, setIsCompleted, isCompleted }) => {
                         <MissionButton
                             text={'完成'}
                             isCompleted={isCompleted}
+                            addStep={addStep}
                         />
                     </div>
                 </div>

@@ -12,7 +12,7 @@ const ButtonText = ({ text, addStep }) => {
                 type="button"
                 onClick={addStep}
             >
-                <span>{text}</span>
+                <span className="text-Mblue">{text}</span>
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

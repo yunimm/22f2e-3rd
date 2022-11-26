@@ -140,15 +140,25 @@ li[data-active='true'] {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.bg-scrum {
+    background-image: url(../src/assets//image//scrum.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: center;
+}
+
 @layer components {
     .drag-wrapper {
-        @apply relative w-[378px] h-[64px] flex justify-center items-center gap-3 rounded-lg cursor-pointer;
+        @apply relative min-w-[378px] h-[64px] flex justify-center items-center gap-3 rounded-lg cursor-pointer border border-Mblue bg-white z-50;
     }
     .drag-point {
         @apply leading-[64px] text-white inline-block  absolute -left-[74px] w-[64px] h-[64px] rounded-xl;
     }
     .main-border-wrapper {
-        @apply border border-[#AAAAAA] rounded-xl w-[1220px] h-[491px] ;
+        @apply border border-[#AAAAAA] rounded-xl w-[1220px] h-[491px];
+    }
+    .sprint-title {
+        @apply border w-[393px] h-[96px] py-5 rounded-2xl;
     }
 }
 #drag {
@@ -166,7 +176,6 @@ li[data-active='true'] {
         width: 48px;
     }
 }
-
 .drag-wrapper-meat {
     @apply drag-wrapper bg-Fbrown active:bg-Fbrown-200;
 }
@@ -185,6 +194,8 @@ li[data-active='true'] {
     height: 64px;
     border: 1px dashed #aaaaaa;
     border-radius: 8px;
+    background-color: white;
+    opacity: 50%;
 }
 .arrows-pointing-out {
     position: absolute;

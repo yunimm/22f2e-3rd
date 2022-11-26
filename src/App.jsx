@@ -7,9 +7,10 @@ import Step2 from './pages/Step2';
 import Step3 from './pages/Step3';
 import Step4 from './pages/Step4';
 import Step5 from './pages/Step5';
+import Step6 from './pages/Step6';
 
 function App() {
-    const [step, setStep] = useState(5);
+    const [step, setStep] = useState(6);
     const [isCompleted, setIsCompleted] = useState(false);
     const addStep = () => {
         setStep(step + 1);
@@ -60,6 +61,13 @@ function App() {
                         )}
                         {step === 5 && (
                             <Step5
+                                addStep={addStep}
+                                isCompleted={isCompleted}
+                                setIsCompleted={setIsCompleted}
+                            />
+                        )}
+                        {step === 6 && (
+                            <Step6
                                 addStep={addStep}
                                 isCompleted={isCompleted}
                                 setIsCompleted={setIsCompleted}
