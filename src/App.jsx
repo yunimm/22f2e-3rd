@@ -12,7 +12,7 @@ import Step7 from './pages/Step7';
 import Step8 from './pages/Step8';
 
 function App() {
-    const [step, setStep] = useState(5);
+    const [step, setStep] = useState(0);
     const [isCompleted, setIsCompleted] = useState(false);
     const addStep = () => {
         if (step !== 9) {

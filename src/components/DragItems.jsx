@@ -171,10 +171,10 @@ const DragItemReuse = ({ title, text, margin, src, color }) => {
     );
 };
 
-const DragItemBlank = ({ text, src }) => {
+const DragItemBlank = ({ text, src, margin }) => {
     return (
         <>
-            <li className="drag-wrapper">
+            <li className={`drag-wrapper bg-white ${margin}`}>
                 <p className="drag-content">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

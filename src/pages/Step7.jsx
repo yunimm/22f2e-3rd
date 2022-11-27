@@ -28,7 +28,6 @@ const Step7 = ({ addStep, setIsCompleted, isCompleted }) => {
         ) {
             setIsError(false);
             setIsCorrect(false);
-            console.log('choose error');
         } else if (
             text === '大家在開發上都會互相cover，任務都在時間內完成。' ||
             text === '可以記錄這次開發時間，讓預估團隊點數更精準。'
@@ -129,12 +128,12 @@ const Step7 = ({ addStep, setIsCompleted, isCompleted }) => {
                                         </div>
                                     </Dialogue>
 
-                                    {isSubmitted !== 0 && (
+                                    {isSubmitted > 0 && (
                                         <div className="absolute right-0">
                                             <Dialogue src={null} chName="">
                                                 <div className="dialogue-wrapper">
                                                     <p>
-                                                        dia大家在開發上都會互相cover，任務都在時間內完成。
+                                                        大家在開發上都會互相cover，任務都在時間內完成。
                                                     </p>
                                                 </div>
                                             </Dialogue>
@@ -156,12 +155,12 @@ const Step7 = ({ addStep, setIsCompleted, isCompleted }) => {
                                         </div>
                                     )}
 
-                                    {isSubmitted !== 1 && (
+                                    {isSubmitted > 1 && (
                                         <div className="absolute right-0">
                                             <Dialogue src={null} chName="">
                                                 <div className="dialogue-wrapper">
                                                     <p>
-                                                        dia可以記錄這次開發時間，讓預估團隊點數更精準。
+                                                        可以記錄這次開發時間，讓預估團隊點數更精準。
                                                     </p>
                                                 </div>
                                             </Dialogue>

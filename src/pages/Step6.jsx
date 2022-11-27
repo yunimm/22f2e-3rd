@@ -7,14 +7,89 @@ import Po from '../assets/image/introduce/po-introduce.svg';
 import jiralogo from '../assets/image/logo/jira-logo.png';
 import confluence from '../assets/image/logo/confluence-logo.png';
 import { DragItemBlank } from '../components/DragItems';
+import { Draggable, DragDropContext, Droppable } from 'react-beautiful-dnd';
 
-const Step6 = ({ addStep, setIsCompleted, isCompleted }) => {
+const Step6 = ({ addStep, isCompleted }) => {
     const [page, setPage] = useState(1);
-    const margin = `ml-[152px]`;
-    const src = true;
+    const [isOrderCorrect, setIsOrderCorrect] = useState(null);
+    const answerAry = ['1', '2', '3'];
+
     const addPage = () => {
         setPage(page + 1);
     };
+
+    const [itemObj, setItemObj] = useState({
+        candidate: {
+            items: [
+                {
+                    title: '短衝檢視會議 (Sprint Review)',
+                    text: '',
+                    priority: '2',
+                    id: '1',
+                    margin: ``,
+                },
+                {
+                    title: '每日站立會議 (Daily Scrum)',
+                    text: '',
+                    priority: '1',
+                    id: '2',
+                    margin: ``,
+                },
+                {
+                    title: '短衝自省會議 (Sprint Retrospective)',
+                    text: '',
+                    priority: '3',
+                    id: '3',
+                    margin: ``,
+                },
+            ],
+        },
+        productBacklog: {
+            items: [],
+        },
+    });
+
+    const onDragEnd = (event) => {
+        const { source, destination } = event;
+
+        if (!destination) {
+            return;
+        }
+
+        // 拷貝新的items (來自state)
+        let newItemObj = { ...itemObj };
+
+        // splice(start, deleteCount, item )
+        // 從source剪下被拖曳的元素
+        const [remove] = newItemObj[source.droppableId].items.splice(
+            source.index,
+            1,
+        );
+
+        // 在destination位置貼上被拖曳的元素
+        newItemObj[destination.droppableId].items.splice(
+            destination.index,
+            0,
+            remove,
+        );
+
+        // set state新的 itemObj
+        setItemObj(newItemObj);
+
+        // 確認productBacklog順序
+        const checkProductBacklogOrder = () => {
+            const currentProductBacklogOrder =
+                newItemObj.productBacklog.items.map((ele) => {
+                    return ele.priority;
+                });
+            return currentProductBacklogOrder.join('') === answerAry.join('')
+                ? true
+                : false;
+        };
+
+        setIsOrderCorrect(checkProductBacklogOrder);
+    };
+
     return (
         <>
             <div className="flex-center-col gap-5">
@@ -145,44 +220,130 @@ const Step6 = ({ addStep, setIsCompleted, isCompleted }) => {
                     </div>
                 )}
                 {page === 3 && (
-                    <div className="glass board-type-p0">
-                        <div className="main-border-wrapper pr-[100px] pl-10 bg-scrum">
-                            <div className="flex flex-col items-center w-full">
-                                <p className="drag-border mb-[92px] ml-52 mt-10" />
-                                <p className="drag-border ml-52" />
-                                <p className="drag-border ml-[780px] mt-5" />
-                            </div>
-                            <div className="flex gap-[10px] mt-[47px] relative">
-                                <DragItemBlank text="短衝檢視會議 (Sprint Review)" />
-                                <DragItemBlank text="短衝檢視會議 (Sprint Review)" />
-                                <DragItemBlank text="短衝檢視會議 (Sprint Review)" />
-                                <div className="absolute left-0 z-0 flex justify-between gap-[10px]">
+                    <DragDropContext onDragEnd={onDragEnd}>
+                        <div className="glass board-type-p0">
+                            <div className="main-border-wrapper pr-[100px] pl-10 bg-scrum relative">
+                                <Droppable droppableId="productBacklog">
+                                    {(provided) => (
+                                        <div
+                                            className="h-[374px] relative flex flex-col "
+                                            ref={provided.innerRef}
+                                            {...provided.droppableProps}
+                                        >
+                                            {itemObj.productBacklog.items.map(
+                                                (item, i) => (
+                                                    <div
+                                                        key={item.id}
+                                                        className="ml-[500px] mt-[30px] my-[23px] w-[378px]"
+                                                    >
+                                                        <Draggable
+                                                            draggableId={
+                                                                item.id
+                                                            }
+                                                            index={i}
+                                                        >
+                                                            {(provided) => (
+                                                                <div
+                                                                    {...provided.draggableProps}
+                                                                    {...provided.dragHandleProps}
+                                                                    ref={
+                                                                        provided.innerRef
+                                                                    }
+                                                                >
+                                                                    <DragItemBlank
+                                                                        text={
+                                                                            item.title
+                                                                        }
+                                                                        margin={
+                                                                            item.margin
+                                                                        }
+                                                                    />
+                                                                </div>
+                                                            )}
+                                                        </Draggable>
+                                                    </div>
+                                                ),
+                                            )}
+                                            {provided.placeholder}
+                                        </div>
+                                    )}
+                                </Droppable>
+                                <div className="flex flex-col items-center w-full absolute -top-2 -left-12 gap-[52px]">
+                                    <p className="drag-border  ml-[335px] mt-10" />
+                                    <p className="drag-border ml-[335px] " />
+                                    <p className="drag-border ml-[335px] mb-[400px]" />
+                                </div>
+                                <div className="absolute left-10 z-0 flex gap-[10px]">
                                     <p className="drag-border" />
                                     <p className="drag-border" />
                                     <p className="drag-border" />
                                 </div>
+                                <div className="flex gap-[10px]">
+                                    <Droppable droppableId="candidate">
+                                        {(provided) => (
+                                            <div
+                                                className="h-[300px] w-full flex justify-between"
+                                                ref={provided.innerRef}
+                                                {...provided.droppableProps}
+                                            >
+                                                {itemObj.candidate.items.map(
+                                                    (item, i) => (
+                                                        <div
+                                                            key={item.id}
+                                                            className="mr-[9.8px]"
+                                                        >
+                                                            <Draggable
+                                                                draggableId={
+                                                                    item.id
+                                                                }
+                                                                index={i}
+                                                            >
+                                                                {(provided) => (
+                                                                    <div
+                                                                        {...provided.draggableProps}
+                                                                        {...provided.dragHandleProps}
+                                                                        ref={
+                                                                            provided.innerRef
+                                                                        }
+                                                                    >
+                                                                        <DragItemBlank
+                                                                            text={
+                                                                                item.title
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                )}
+                                                            </Draggable>
+                                                        </div>
+                                                    ),
+                                                )}
+                                                {provided.placeholder}
+                                            </div>
+                                        )}
+                                    </Droppable>
+                                </div>
+                            </div>
+                            <div className="footer">
+                                <img src={Po} alt="character on screen" />
+                                <p className="footer-text">
+                                    換你試試看! 在這經典的
+                                    <span className="text-Mblue-200">
+                                        Scrum流程圖
+                                    </span>
+                                    中，有三個重要的會議會執行。
+                                    <br />
+                                    嘗試安排他們的名字到正確的位置去吧!
+                                </p>
+                            </div>
+                            <div className="absolute bottom-[30px] right-[30px]">
+                                <MissionButton
+                                    text={'完成'}
+                                    isCompleted={isOrderCorrect === true}
+                                    addStep={page === 3 ? addStep : addPage}
+                                />
                             </div>
                         </div>
-                        <div className="footer">
-                            <img src={Po} alt="character on screen" />
-                            <p className="footer-text">
-                                換你試試看! 在這經典的
-                                <span className="text-Mblue-200">
-                                    Scrum流程圖
-                                </span>
-                                中，有三個重要的會議會執行。
-                                <br />
-                                嘗試安排他們的名字到正確的位置去吧!
-                            </p>
-                        </div>
-                        <div className="absolute bottom-[30px] right-[30px]">
-                            <MissionButton
-                                text={'完成'}
-                                isCompleted={isCompleted}
-                                addStep={page === 3 ? addStep : addPage}
-                            />
-                        </div>
-                    </div>
+                    </DragDropContext>
                 )}
             </div>
         </>
