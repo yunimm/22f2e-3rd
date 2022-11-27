@@ -4,7 +4,7 @@ import cheese from '../assets/image/food/cheese.svg';
 import salad from '../assets/image/food/salad.svg';
 import tomato from '../assets/image/food/tomato.svg';
 
-const DragItemMeat = ({ src }) => {
+const DragItemMeat = ({ src, text }) => {
     return (
         <>
             <div id="drag">
@@ -24,10 +24,10 @@ const DragItemMeat = ({ src }) => {
                                 d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
                             />
                         </svg>
-                        會員系統 (登入、註冊、權限管理)
+                        {text}
                     </p>
                 </li>
-                {src && <img src={meat} alt="meat on screen" />}
+                {src && <img src={src} alt="meat on screen" />}
             </div>
         </>
     );
@@ -136,7 +136,42 @@ const DragItemTomato = ({ src, margin }) => {
     );
 };
 
-const DragItemBlank = ({ text }) => {
+const DragItemReuse = ({ title, text, margin, src, color }) => {
+    return (
+        <>
+            <div id="drag">
+                <li
+                    id="drag-wrapper"
+                    className={`drag-wrapper ${color} ${margin}`}
+                >
+                    <div className="drag-wrapper-item">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-6 h-6 arrows-pointing-out"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+                            />
+                        </svg>
+                        <div className="flex flex-col">
+                            <span>{title}</span>
+                            <span className="text-base">{text}</span>
+                        </div>
+                    </div>
+                </li>
+                {src && <img src={src} alt="food on screen" />}
+            </div>
+        </>
+    );
+};
+
+const DragItemBlank = ({ text, src }) => {
     return (
         <>
             <li className="drag-wrapper">
@@ -168,4 +203,5 @@ export {
     DragItemSalad,
     DragItemTomato,
     DragItemBlank,
+    DragItemReuse,
 };

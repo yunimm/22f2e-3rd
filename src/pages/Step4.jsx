@@ -24,26 +24,9 @@ const Step4 = ({ addStep, setIsCompleted, isCompleted }) => {
                 let clientHeight = e.target.clientHeight;
                 let scrollHeight = e.target.scrollHeight;
                 let total = clientHeight + scrollHeight;
-                console.log(total);
+
                 // 打印数值
-                console.table([
-                    {
-                        label: '距顶部',
-                        value: scrollTop,
-                    },
-                    {
-                        label: '可视区高度',
-                        value: clientHeight,
-                    },
-                    {
-                        label: '滚动条总高度',
-                        value: scrollHeight,
-                    },
-                    {
-                        label: '距顶部 + 可视区高度',
-                        value: scrollTop + clientHeight,
-                    },
-                ]);
+
                 if (scrollTop === 820) {
                     setIsCompleted(true);
                 }

@@ -149,7 +149,7 @@ li[data-active='true'] {
 
 @layer components {
     .drag-wrapper {
-        @apply relative min-w-[378px] h-[64px] flex justify-center items-center gap-3 rounded-lg cursor-pointer border border-Mblue bg-white z-50;
+        @apply relative min-w-[378px] h-[64px] flex justify-center items-center gap-3 rounded-lg cursor-pointer border border-Mblue text-white z-50;
     }
     .drag-point {
         @apply leading-[64px] text-white inline-block  absolute -left-[74px] w-[64px] h-[64px] rounded-xl;
@@ -171,9 +171,9 @@ li[data-active='true'] {
 #drag {
     display: flex;
     gap: 8px;
-    &:hover {
-        filter: drop-shadow(0px 6px 0px #23385e);
-    }
+    // &:hover {
+    //     filter: drop-shadow(0px 6px 0px #23385e);
+    // }
     & p,
     span {
         color: white;
@@ -201,8 +201,9 @@ li[data-active='true'] {
     height: 64px;
     border: 1px dashed #aaaaaa;
     border-radius: 8px;
-    background-color: white;
-    opacity: 50%;
+    z-index: 0;
+    // background-color: white;
+    // opacity: 50%;
 }
 .arrows-pointing-out {
     position: absolute;
@@ -234,4 +235,9 @@ li[data-active='true'] {
     background-color: white;
     padding: 40px;
     border-radius: 12px;
+}
+
+[data-rbd-draggable-id] {
+    left: auto !important;
+    top: auto !important;
 }
