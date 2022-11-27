@@ -197,6 +197,20 @@ const DragItemBlank = ({ text, src }) => {
     );
 };
 
+const DragItemPoint = ({ title, text, margin, src, color, point }) => {
+    return (
+        <div className="relative">
+            <p className={`drag-point ${color}`}>{point}</p>
+            <DragItemReuse
+                title={title}
+                text={text}
+                src={src}
+                color={color}
+                margin={margin}
+            />
+        </div>
+    );
+};
 export {
     DragItemMeat,
     DragItemCheese,
@@ -204,4 +218,5 @@ export {
     DragItemTomato,
     DragItemBlank,
     DragItemReuse,
+    DragItemPoint,
 };
