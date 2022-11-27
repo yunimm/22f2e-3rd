@@ -188,7 +188,6 @@ const Step5 = ({ addStep }) => {
                                     {overPoint && (
                                         <p className="text-Mred">
                                             點數已超過20點，再試試看!
-                                            {totalPointSum}
                                         </p>
                                     )}
                                 </div>
