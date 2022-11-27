@@ -308,7 +308,9 @@ const Step3 = ({ addStep }) => {
                             <div className="absolute bottom-[30px] right-[30px]">
                                 <MissionButton
                                     text={'完成'}
-                                    isCompleted={isOrderCorrect}
+                                    isCompleted={
+                                        isOrderCorrect === true
+                                    }
                                     addStep={page === 2 ? addStep : addPage}
                                 />
                             </div>
