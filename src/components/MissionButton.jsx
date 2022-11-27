@@ -11,7 +11,7 @@ const MissionButton = ({ text, addStep, isCompleted }) => {
             transition ease-in-out missionBtn"
                 type="button"
                 onClick={addStep}
-                data-disabled={isCompleted === false}
+                data-disabled={isCompleted === false }
             >
                 {text}
             </button>

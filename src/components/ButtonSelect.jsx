@@ -1,17 +1,12 @@
 import React from 'react';
 
-const ButtonSelect = ({ text, onClick }) => {
+const ButtonSelect = ({ text, onAnswerQuestion }) => {
     return (
         <>
             <button
-                className="bg-white text-Mblue-300 py-5 w-full border border-Mblue rounded-xl font-semibold text-center 
-            hover:bg-Mblue-100
-            active:bg-Mblue active:text-white
-            disabled:text-Mgray
-            transition ease-in-out"
+                className="button-select"
                 type="button"
-                //disabled
-                onClick={onClick}
+                onClick={onAnswerQuestion}
             >
                 {text}
             </button>
@@ -19,4 +14,18 @@ const ButtonSelect = ({ text, onClick }) => {
     );
 };
 
-export default ButtonSelect;
+const ButtonSelectError = ({ text, onAnswerQuestion }) => {
+    return (
+        <>
+            <button
+                className="button-select border-Mred"
+                type="button"
+                onClick={onAnswerQuestion}
+            >
+                {text}
+            </button>
+        </>
+    );
+};
+
+export { ButtonSelect, ButtonSelectError };
